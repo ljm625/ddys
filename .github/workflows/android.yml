@@ -23,4 +23,9 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew build
+      run: bash ./gradlew assembleGithub
+    - name: Upload Pre-Release Apk
+      uses: actions/upload-artifact@v3
+      with:
+        name: Pre-Release Apk
+        path: app/build/outputs/apk/Github/release/*.apk
